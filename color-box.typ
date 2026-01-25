@@ -51,7 +51,7 @@
       left: 0.3em,
       right: 0.3em,
       text(
-        size: 1.1em,
+        size: 1.0em,
         strong(
           text(
             fill: tertiary-color,
@@ -61,7 +61,7 @@
       )
         + block(
           above: 0.8em,
-          text(size: 1.2em, fill: text-color, body),
+          text(size: 1.0em, fill: text-color, body),
         ),
     )
   ]
