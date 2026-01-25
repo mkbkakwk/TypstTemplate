@@ -118,15 +118,14 @@
       // 使用 absolute placement 放置 "Abstract" 标签
       #place(dx: 2em, dy: -1em, box(
         fill: white,
-        inset: 6pt,
+        inset: 0.5em,
         text(font: sans, weight: sans-weight)[Abstract],
       ))
     ]
-    v(-0.2em)
+    v(0.2em)
 
     abstract // 插入摘要正文
 
-    v(-0.1em)
     line(length: 105%) // 底部分割线
     v(0.5em)
   }
