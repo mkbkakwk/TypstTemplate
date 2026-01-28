@@ -77,6 +77,8 @@
   // 设置段落缩进：2em (两个字符)，all: true 确保标题后第一段也缩进
   set par(first-line-indent: (amount: 2em, all: true), spacing: 0.7em, justify: true, leading: 0.7em)
 
+  set list(indent: 2em) // 列表缩进设置
+
   // --- 4.2 渲染标题 ---
   if title != none {
     set par(first-line-indent: 0em) // 标题本身不缩进
