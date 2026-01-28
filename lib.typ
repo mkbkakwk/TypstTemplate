@@ -9,7 +9,8 @@
 #import "@preview/codly-languages:0.1.8": *
 
 // 引入 cetz 包，用于绘图
-#import "@preview/cetz:0.3.1": *
+#import "@preview/cetz:0.4.2"
+#import "@preview/cetz-plot:0.1.0"
 
 #import "colors.typ": *
 #import "color-box.typ": *
