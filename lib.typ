@@ -2,15 +2,15 @@
 // 1. 依赖与导入 (Imports)
 // ==========================================
 // 引入 pergamon 包，用于高级参考文献管理 ("作者-年份" 等格式)
-#import "@preview/pergamon:0.6.0": *
+#import "@preview/pergamon:0.7.1": *
 
 // 引入 codly 包，用于美化代码块 (显示行号、图标等)
 #import "@preview/codly:1.3.0": *
-#import "@preview/codly-languages:0.1.8": *
+#import "@preview/codly-languages:0.1.10": *
 
 // 引入 cetz 包，用于绘图
 #import "@preview/cetz:0.4.2"
-#import "@preview/cetz-plot:0.1.0"
+#import "@preview/cetz-plot:0.1.3"
 
 #import "colors.typ": *
 #import "color-box.typ": *
