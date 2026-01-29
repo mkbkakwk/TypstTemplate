@@ -28,6 +28,9 @@
 #let serif-font = ("Times New Roman", "SimSun")
 #let text-size = 12pt
 
+// 自定义章节计数器（用于图表公式编号）
+#let chaptercounter = counter("chapter")
+
 // 没有原生粗体的字体列表
 #let pseudo-bold-fonts = "SimSun"
 
@@ -204,8 +207,6 @@
 
   // --- 4.5 标题样式自定义 (核心视觉逻辑) ---
   set heading(numbering: "1.1 ")
-  let chaptercounter = counter("chapter") // 自定义章节计数器（用于图表公式编号）
-  let heading-size = 12pt
 
   // Level 1 标题：左侧带黄色方块编号
   show heading.where(level: 1): it => {
@@ -224,7 +225,7 @@
                   align(center + horizon, text(
                     font: sans-font,
                     weight: sans-weight,
-                    size: heading-size,
+                    size: text-size,
                     [#(counter(heading).get().first())],
                   ))
                 }
@@ -236,7 +237,7 @@
 
       // 标题文本，强制取消缩进
       #par(first-line-indent: 0em)[
-        #text(font: sans-font, weight: sans-weight, size: heading-size, it.body)
+        #text(font: sans-font, weight: sans-weight, size: text-size, it.body)
       ]
     ]
 
@@ -248,7 +249,7 @@
   }
 
   // 其他级别标题样式
-  show heading.where(level: 2): set text(font: sans-font, weight: sans-weight, size: heading-size)
+  show heading.where(level: 2): set text(font: sans-font, weight: sans-weight, size: text-size)
   show heading.where(level: 2): set block(below: 1em, above: 2em)
   show heading.where(level: 3): set text(font: sans-font, weight: sans-weight)
   show heading.where(level: 4): set text(font: sans-font, weight: sans-weight, size: text-size)
@@ -266,13 +267,12 @@
     let current-fonts = text.font
     let font-list = if type(current-fonts) == array { current-fonts } else { (current-fonts,) }
 
-    // 判断当前是否使用了宋体
     if font-list.any(f => lower(f) in targets) {
       // 描边 0.028em 模拟加粗
       set text(stroke: 0.028em + text.fill)
       it.body
     } else {
-      it // 非宋体使用原生粗体
+      it // 使用原生粗体
     }
   }
 
