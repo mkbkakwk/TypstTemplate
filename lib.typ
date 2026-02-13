@@ -143,11 +143,35 @@
   // 段落设置：首行缩进 2em，两端对齐
   set par(
     first-line-indent: (amount: 2em, all: true), // all: true 确保标题后第一段也缩进
-    spacing: 0.7em,
+    // spacing: 0.7em,
     justify: true,
-    leading: 0.7em,
+    leading: 1.2em,
   )
   set list(indent: 2em)
+  set enum(
+    indent: 2em,
+    numbering: (..n) => {
+      let lv = n.pos().len()
+      let v = n.pos().last()
+      if lv == 1 {
+        numbering("1.", v)
+      } else if lv == 2 {
+        numbering("1)", v)
+      } else if lv == 3 {
+        numbering("a.", v)
+      } else if lv == 4 {
+        numbering("a)", v)
+      } else {
+        numbering("i.", v)
+      }
+    },
+    full: true,
+  )
+  show enum: it => {
+    show enum: set enum(indent: 0em)
+    show list: set list(indent: 0em)
+    it
+  }
 
   // --- 4.2 渲染标题区域 ---
   if title != none {
